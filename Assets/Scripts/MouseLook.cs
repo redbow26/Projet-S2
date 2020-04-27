@@ -31,6 +31,7 @@ public class MouseLook : MonoBehaviour
 
         // Apply the X rotation to the cameras
         transform.localRotation = Quaternion.Euler(yRotation, 0f, 0f);
+
         // Rotate the player on the X axis
         playerBody.Rotate(Vector3.up * mouseX);
     }
