@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float lookXLimit = 45.0f;
 
     [Header("Teleportation")]
+    public Boolean canTeleport = false;
     public float xOffset;
     public float yOffset;
     public float zOffset;
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
 
     private void Teleportation()
     {
-        if (canMove)
+        if (canMove && canTeleport)
         {
             if (chamber == 1)
             {

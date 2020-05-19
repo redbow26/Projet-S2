@@ -7,32 +7,29 @@ public class DoorController : MonoBehaviour
 {
 
     public GameObject Door;
-    private bool doorIsOpening = true;
-    private InputManager inputActions;
-    CharacterController characterController;
+    private bool doorIsOpen = false;
+    public int timeOpen = 0;
 
-    void Awake()
+
+    public void Open()
     {
-
-        characterController = GetComponent<CharacterController>();
-        inputActions = new InputManager();
-        inputActions.GamePlay.Use.performed += _ => Opening();
-    }
-
-    public void Opening()
-    {
-        if (doorIsOpening == true)
-        {
-            Door.transform.Translate(Vector3.up * 7);
-            doorIsOpening = false;
-        }
-
-        else
+        if (!doorIsOpen)
         {
             Door.transform.Translate(Vector3.down * 7);
-            
-            doorIsOpening = true;
+            doorIsOpen = true;
+            if (timeOpen != 0)
+            {
+                Invoke("Close", timeOpen);
+            }
         }
-        
+    }
+
+    public void Close()
+    {
+        if (doorIsOpen)
+        {
+            Door.transform.Translate(Vector3.up * 7);
+            doorIsOpen = false;
+        }
     }
 }

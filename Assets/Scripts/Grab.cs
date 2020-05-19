@@ -9,7 +9,6 @@ public class Grab : MonoBehaviour
 
     public void grab(GameObject obj)
     {
-        print("test");
         grabObject = obj;
     }
 
