@@ -73,6 +73,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Value"",
+                    ""id"": ""8e3de776-4bc6-459c-8cb2-43b88ec0bb11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -262,6 +270,28 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c220814d-abb6-480b-be59-9d91070f2060"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b97d21e1-b115-418b-8cea-8a0ce6a56aff"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -305,6 +335,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
         m_GamePlay_Teleport = m_GamePlay.FindAction("Teleport", throwIfNotFound: true);
         m_GamePlay_Use = m_GamePlay.FindAction("Use", throwIfNotFound: true);
+        m_GamePlay_Menu = m_GamePlay.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,6 +392,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_GamePlay_Jump;
     private readonly InputAction m_GamePlay_Teleport;
     private readonly InputAction m_GamePlay_Use;
+    private readonly InputAction m_GamePlay_Menu;
     public struct GamePlayActions
     {
         private @InputManager m_Wrapper;
@@ -372,6 +404,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
         public InputAction @Teleport => m_Wrapper.m_GamePlay_Teleport;
         public InputAction @Use => m_Wrapper.m_GamePlay_Use;
+        public InputAction @Menu => m_Wrapper.m_GamePlay_Menu;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,6 +435,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Use.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnUse;
                 @Use.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnUse;
                 @Use.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnUse;
+                @Menu.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -427,6 +463,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Use.started += instance.OnUse;
                 @Use.performed += instance.OnUse;
                 @Use.canceled += instance.OnUse;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -458,5 +497,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnTeleport(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

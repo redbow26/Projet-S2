@@ -53,4 +53,9 @@ public class DiscordController : MonoBehaviour
 	{
 		discord.RunCallbacks();
 	}
+
+	private void OnDestroy()
+	{
+		discord.Dispose();
+	}
 }
