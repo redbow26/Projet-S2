@@ -47,7 +47,9 @@ public class Player : MonoBehaviour
 
     public bool canMove = true;
     public bool canTeleport = false;
-    public bool menuActivate = false;
+
+    [SerializeField]
+    public GameObject joystick;
 
     void Awake()
     {
@@ -70,11 +72,6 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Start()
-    {
-        lookSpeed /= 10;
-    }
-
     private void OnEnable()
     {
         inputActions.Enable();
@@ -90,6 +87,8 @@ public class Player : MonoBehaviour
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+
+        
         // Press Left Shift to run
         bool isRunning = Run;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * movementInput.y : 0;
@@ -127,7 +126,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Teleportation()
+    public void Teleportation()
     {
         if (canMove && canTeleport)
         {
@@ -151,8 +150,13 @@ public class Player : MonoBehaviour
         
     }
 
-    private void Use()
+    public void Use()
     {
+        if (grab.grabObject != null)
+        {
+            grab.release();
+        }
+
         Ray ray = playerCamera.ScreenPointToRay(mousePosition);
 
         var closest = 0f;

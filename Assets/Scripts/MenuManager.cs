@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     private GameObject _gameManager;
     private GameManager gameManager;
 
+    private SaveVariable variable;
+
     private bool menuIsActive = false;
 
     public GameObject menu;
@@ -28,6 +30,7 @@ public class MenuManager : MonoBehaviour
         inputActions.GamePlay.Menu.performed += _ => Menu();
 
         _gameManager = GameObject.FindGameObjectWithTag("GameController");
+        variable = GameObject.FindGameObjectWithTag("Variable").GetComponent<SaveVariable>();
 
         if (_gameManager)
         {
@@ -50,7 +53,6 @@ public class MenuManager : MonoBehaviour
         if (!menuIsActive)
         {
             gameManager.deactivateMove();
-            gameManager.deactivateTeleport();
             crosshair.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
@@ -60,7 +62,6 @@ public class MenuManager : MonoBehaviour
         else
         {
             gameManager.activateMove();
-            gameManager.activateTeleport();
             crosshair.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -76,6 +77,11 @@ public class MenuManager : MonoBehaviour
     {
         optionMenu.SetActive(true);
         mainMenu.SetActive(false);
+        if (variable)
+        {
+            sensitivity.value = variable.sensitivity;
+            volume.value = variable.volume;
+        }
     }
 
     public void QuitOption()

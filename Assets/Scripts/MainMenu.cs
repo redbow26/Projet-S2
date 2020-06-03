@@ -10,8 +10,16 @@ public class MainMenu : MonoBehaviour {
     public Slider sensitivity;
     public GameManager gameManager;
 
+    private SaveVariable variable;
+
     public GameObject mainMenu;
     public GameObject optionMenu;
+
+    private void Start()
+    {
+
+        variable = GameObject.FindGameObjectWithTag("Variable").GetComponent<SaveVariable>();
+    }
 
     public void Jouer ()
     {
@@ -24,6 +32,13 @@ public class MainMenu : MonoBehaviour {
 
     public void DisplayOption()
     {
+        if (variable)
+        {
+
+            volume.value = variable.volume;
+            sensitivity.value = variable.sensitivity;
+        }
+
         optionMenu.SetActive(true);
         mainMenu.SetActive(false);
     }

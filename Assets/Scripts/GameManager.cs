@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -61,7 +62,10 @@ public class GameManager : MonoBehaviour
     {
         if (_player != null)
         {
-            player.lookSpeed = sensitivity / 10;
+            if (Gamepad.current != null)
+                player.lookSpeed = sensitivity;
+            else
+                player.lookSpeed = sensitivity / 10;
         }
         if (variable != null)
             variable.sensitivity = sensitivity;
