@@ -57,6 +57,8 @@ public class MenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
 
+            Time.timeScale = 0.0f;
+
             menu.SetActive(true);
         }
         else
@@ -65,6 +67,8 @@ public class MenuManager : MonoBehaviour
             crosshair.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            Time.timeScale = 1.0f;
 
             menu.SetActive(false);
             mainMenu.SetActive(true);
