@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public float lookXLimit = 45.0f;
 
     [Header("Teleportation")]
+    [SerializeField]
+    private List<GameObject> teleportable;
     public float xOffset;
     public float yOffset;
     public float zOffset;
@@ -136,12 +138,20 @@ public class Player : MonoBehaviour
                 characterController.transform.position += new Vector3(xOffset, yOffset, zOffset);
                 characterController.enabled = true;
                 chamber = 2;
+                foreach (GameObject objet in teleportable)
+                {
+                    objet.transform.position += new Vector3(xOffset, yOffset, zOffset);
+                }
             }
             else if (chamber == 2)
             {
                 characterController.enabled = false;
                 characterController.transform.position -= new Vector3(xOffset, yOffset, zOffset);
                 characterController.enabled = true;
+                foreach (GameObject objet in teleportable)
+                {
+                    objet.transform.position -= new Vector3(xOffset, yOffset, zOffset);
+                }
                 chamber = 1;
             }
 

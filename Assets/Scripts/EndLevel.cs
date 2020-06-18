@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
+    public string nextScene;
     void OnTriggerEnter(Collider col)
     {
         if (col.name == "FPSPlayer")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(nextScene);
         }
     }
 }

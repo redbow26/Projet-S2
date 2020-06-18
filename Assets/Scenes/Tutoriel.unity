@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.27450982, g: 0.23529412, b: 0.23529412, a: 1}
-  m_AmbientEquatorColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
-  m_AmbientGroundColor: {r: 0.023529412, g: 0.023529412, b: 0.015686275, a: 1}
+  m_AmbientSkyColor: {r: 0.54901963, g: 0.47058824, b: 0.47058824, a: 1}
+  m_AmbientEquatorColor: {r: 0.0627451, g: 0.0627451, b: 0.0627451, a: 1}
+  m_AmbientGroundColor: {r: 0.18039216, g: 0.18039216, b: 0.24313726, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4052,11 +4052,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3162597614026264997, guid: 022950307ce8e1742975e9726c4072da,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.43744007
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 022950307ce8e1742975e9726c4072da, type: 3}
 --- !u!1 &1244437020
@@ -4934,24 +4929,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1572520638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3162597614026264994, guid: 022950307ce8e1742975e9726c4072da,
-    type: 3}
-  m_PrefabInstance: {fileID: 1241286368}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1572520642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572520638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4572c55e1700b945b68914ba732696b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1576800107
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,11 +7280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1206863637}
     m_Modifications:
-    - target: {fileID: 139735348366074439, guid: 2e7c3cdbd0bc7da4bbfc5017c18a203b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 75510df0bdaa8c84097f3da7202defc1, type: 2}
     - target: {fileID: 139735349524008014, guid: 2e7c3cdbd0bc7da4bbfc5017c18a203b,
         type: 3}
       propertyPath: activateMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Target

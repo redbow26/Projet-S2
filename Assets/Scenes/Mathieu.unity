@@ -1511,6 +1511,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1624543089}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &477532102 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3022471276431188310, guid: 19e72609776a5784fa5a600ce51cf2b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1044693344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &479516309
 GameObject:
   m_ObjectHideFlags: 0
@@ -6960,6 +6966,7 @@ GameObject:
   - component: {fileID: 2120827062}
   - component: {fileID: 2120827061}
   - component: {fileID: 2120827060}
+  - component: {fileID: 2120827063}
   m_Layer: 0
   m_Name: kill zone
   m_TagString: Untagged
@@ -7041,6 +7048,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120827058}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2120827063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120827058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f7c12f545ed4649b362b10aeb61734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 477532102}
+  respawnPoint: {fileID: 2014105232}
 --- !u!1001 &518046226424871837
 PrefabInstance:
   m_ObjectHideFlags: 0
