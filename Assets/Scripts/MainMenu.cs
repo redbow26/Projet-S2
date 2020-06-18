@@ -15,6 +15,12 @@ public class MainMenu : MonoBehaviour {
     public GameObject mainMenu;
     public GameObject optionMenu;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
     private void Start()
     {
 
