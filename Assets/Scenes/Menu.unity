@@ -1187,5 +1187,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6064176386083757865, guid: cc3096d66a293d3498b68c7d9d4b8f2d,
+        type: 3}
+      propertyPath: m_text
+      value: Escape The Dutte
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064176386083757865, guid: cc3096d66a293d3498b68c7d9d4b8f2d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064176386083757865, guid: cc3096d66a293d3498b68c7d9d4b8f2d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064176386083757865, guid: cc3096d66a293d3498b68c7d9d4b8f2d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3096d66a293d3498b68c7d9d4b8f2d, type: 3}
